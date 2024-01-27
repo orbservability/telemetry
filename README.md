@@ -12,9 +12,9 @@ Common configuration and uses for logs, metrics, and traces.
   import (
     "google.golang.org/grpc"
 
-    "github.com/orbservability/schemas/logs"
-    "github.com/orbservability/schemas/metrics"
-    "github.com/orbservability/schemas/traces"
+    "github.com/orbservability/telemetry/pkg/logs"
+    "github.com/orbservability/telemetry/pkg/metrics"
+    "github.com/orbservability/telemetry/pkg/traces"
   )
 
   grpcServer := grpc.NewServer(
@@ -32,9 +32,9 @@ Common configuration and uses for logs, metrics, and traces.
     "google.golang.org/grpc"
     "google.golang.org/grpc/credentials/insecure"
 
-    "github.com/orbservability/schemas/logs"
-    "github.com/orbservability/schemas/metrics"
-    "github.com/orbservability/schemas/traces"
+    "github.com/orbservability/telemetry/pkg/logs"
+    "github.com/orbservability/telemetry/pkg/metrics"
+    "github.com/orbservability/telemetry/pkg/traces"
   )
 
   conn, err := grpc.Dial(
