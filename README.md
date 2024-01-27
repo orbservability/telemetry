@@ -39,8 +39,8 @@ Common configuration and uses for logs, metrics, and traces.
 
   conn, err := grpc.Dial(
     "https://api.orbservability.com",
-    grpc.ChainUnaryInterceptor(traces.UnaryClientInterceptor, logs.UnaryClientInterceptor, metrics.UnaryClientInterceptor),
-    grpc.ChainStreamInterceptor(traces.StreamClientInterceptor, logs.StreamClientInterceptor, metrics.StreamClientInterceptor),
+    grpc.WithChainUnaryInterceptor(traces.UnaryClientInterceptor, logs.UnaryClientInterceptor, metrics.UnaryClientInterceptor),
+    grpc.WithChainStreamInterceptor(traces.StreamClientInterceptor, logs.StreamClientInterceptor, metrics.StreamClientInterceptor),
     grpc.WithTransportCredentials(insecure.NewCredentials()),
   )
   ```
