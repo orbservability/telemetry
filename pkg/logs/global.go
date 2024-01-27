@@ -9,22 +9,22 @@ import (
 )
 
 // Sets up the global logging configuration.
-func Init() error {
+func init() {
 	zerolog.TimeFieldFormat = zerolog.TimeFormatUnix
 
+	msg := "Error initializing logger"
+
 	if err := version(); err != nil {
-		return err
+		log.Fatal().Err(err).Msg(msg)
 	}
 	if err := service(); err != nil {
-		return err
+		log.Fatal().Err(err).Msg(msg)
 	}
 	if err := env(); err != nil {
-		return err
+		log.Fatal().Err(err).Msg(msg)
 	}
 
 	log.Info().Msg("Logger configured!")
-
-	return nil
 }
 
 func version() error {
@@ -42,7 +42,7 @@ func service() error {
 	service := os.Getenv("SERVICE")
 
 	if service == "" {
-		return fmt.Errorf("SERVICE environment variable is missing")
+		return fmt.Errorf("SERVICE environment variable not set")
 	}
 
 	log.Logger = log.With().
