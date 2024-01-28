@@ -6,7 +6,7 @@ Common configuration and uses for logs, metrics, and traces.
 
 ```go
 require (
-  "github.com/orbservability/telemetry v0.0.1"
+  github.com/orbservability/telemetry v0.0.2
 )
 ```
 
@@ -15,6 +15,12 @@ require (
 ### Global
 
 Global configuration is automatically provided via `init()` functions, provided that the package is imported.
+
+```go
+import (
+  _ "github.com/orbservability/telemetry/pkg/logs"
+)
+```
 
 ### Server
 
